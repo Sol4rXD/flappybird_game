@@ -15,7 +15,7 @@ player_pos = pygame.Vector2(25, 150)
 BACKGROUND = pygame.image.load("assets/sprites/background-day.png")  # Replace with your image file
 BACKGROUND = pygame.transform.scale(BACKGROUND, (300, 512))
 
-# PLayer
+# Player
 CHARACTER_IMAGE_NORMAL = pygame.image.load("assets/sprites/bluebird-midflap.png")
 CHARACTER_IMAGE_NORMAL = pygame.transform.scale(CHARACTER_IMAGE_NORMAL, (30, 30))
 
@@ -42,3 +42,4 @@ time_elapsed = 0
 JUMPING = False
 JUMP_VELOCITY = 0
 GRAVITY = 1000
+
