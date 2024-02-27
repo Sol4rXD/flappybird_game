@@ -1,16 +1,12 @@
-from config import *
+from logic import *
 
 # Set the debugging flag
 DEBUG = False
 
 pygame.init()
 
-# Create a list of base field images
-base_field_images = [BASE_FIELD.copy(), BASE_FIELD.copy()]
-base_field_width = BASE_FIELD.get_width()
-
-# Set initial x-coordinate for the base field
-base_field_x = 0
+for _ in range(2):
+    pipes.append(generate_pipe_pair())
 
 while running:
     for event in pygame.event.get():
@@ -39,7 +35,7 @@ while running:
                 print("At ground")
 
         elif player_pos.y <= 1:
-            player_pos.y = 1
+            player_pos.y = 2
             if DEBUG:
                 print("At top")
 
@@ -62,6 +58,17 @@ while running:
 
     if base_field_x < -base_field_width:
         base_field_x = 0
+
+    # PIPE
+    for i, (TOP_PIPE, BOTTOM_PIPE) in enumerate(pipes):
+        TOP_PIPE.x -= 50 * dt
+        BOTTOM_PIPE.x -= 50 * dt
+
+        if TOP_PIPE.right < 0:
+            pipes[i] = generate_pipe_pair()
+
+        screen.blit(pipe_image, TOP_PIPE.topleft)
+        screen.blit(pygame.transform.flip(pipe_image, False, True), BOTTOM_PIPE.topleft)
 
     time_elapsed += dt
     if time_elapsed >= 1:

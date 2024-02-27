@@ -5,7 +5,7 @@ pygame.init()
 # Initialize a clock to measure time
 clock = pygame.time.Clock()
 
-# Initialize a variable to track time
+# Initialize a variable to track times
 time_elapsed = 0
 
 while running:

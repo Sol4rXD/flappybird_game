@@ -1,7 +1,11 @@
 import pygame
 
+# Config screen
+SCREEN_HEIGHT = 512
+SCREEN_WIDTH = 300
+
 # Resolution
-screen = pygame.display.set_mode((300, 512))
+screen = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT))
 clock = pygame.time.Clock()
 running = True
 dt = 0
@@ -43,3 +47,13 @@ JUMPING = False
 JUMP_VELOCITY = 0
 GRAVITY = 1000
 
+base_field_images = [BASE_FIELD.copy(), BASE_FIELD.copy()]
+base_field_width = BASE_FIELD.get_width()
+
+# Set initial x-coordinate for the base field
+base_field_x = 0
+
+# PIPE
+PIPE_WIDTH = 50
+pipes = []
+pipe_image = pygame.image.load("assets/sprites/pipe-green.png")
